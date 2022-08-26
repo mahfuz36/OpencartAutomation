@@ -9,15 +9,15 @@ sys.path.append("tests")
 class MyStoreRegistration(unittest.TestCase):
 
     def setUp(self):
-        self.self.drivr = webself.drivr.Chrome()
+        self.driver = webdriver.Chrome()
         self.parameters = TestRegistrationParameters
         self.base_url = self.parameters.BASE_URL
 
     def test_base_create_user(self):
-        self.drivr = self.self.drivr
-        self.drivr.get(self.base_url)
+        self.driver = self.driver
+        self.driver.get(self.base_url)
 
-        baseLogin = SignInAndCreate(self.drivr)
+        baseLogin = SignInAndCreate(driver)
         baseLogin.signIn()
         baseLogin.enterEmail(self.parameters.EMAIL)
         baseLogin.submitEmail()
@@ -39,7 +39,7 @@ class MyStoreRegistration(unittest.TestCase):
         baseLogin.register()
 
     def tearDown(self):
-        self.self.drivr.quit()
+        self.driver.quit()
 
 
 if __name__ == "__main__":
